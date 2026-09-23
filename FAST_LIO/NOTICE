@@ -1,0 +1,30 @@
+FAST_LIO local derivative notice
+================================
+
+Upstream project: FAST-LIO
+Original upstream: https://github.com/hku-mars/FAST_LIO
+Imported ROS 2 fork: https://github.com/Ericsii/FAST_LIO.git
+Baseline commit: 2fffc570a25d0df172720bac034fbdb6a13d2162
+License: GNU General Public License version 2 (GPL-2.0-only); see LICENSE.
+
+Embedded dependency: hku-mars/ikd-Tree
+Source: https://github.com/hku-mars/ikd-Tree.git
+Baseline commit: e2e3f4e9d3b95a9e66b1ba83dc98d4a05ed8a3c4 (fast_lio branch)
+License: GNU General Public License version 2; the public-source exporter
+places a copy of the package GPLv2 text beside the embedded source.
+
+This directory contains local modifications made in 2026. The changes include:
+
+- ROS 2 Humble/aarch64 build and launch integration;
+- RoboSense RSFAIRY point-cloud and IMU support plus rs_fairy configuration;
+- optional gravity alignment of the mapping world frame;
+- independent full-map export, near-field state-estimation registration, and
+	near-field PCT source ranges;
+- full-frame PCD accumulation, voxel filtering, and transactional dual-PCD map
+	saving;
+- shutdown/file-handle safety fixes; and
+- deployment-specific launch and RViz configuration updates.
+
+The modified source form, build scripts, interface definitions, this notice, and
+the GPLv2 license must accompany a distributed binary of this derivative. This
+notice does not alter the upstream license or remove any upstream attribution.

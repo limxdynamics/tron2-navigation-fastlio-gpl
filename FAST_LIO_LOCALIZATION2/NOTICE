@@ -1,0 +1,29 @@
+FAST_LIO_LOCALIZATION2 local derivative notice
+===============================================
+
+Upstream project: FAST_LIO_LOCALIZATION2
+Upstream source: https://github.com/Smart-Wheelchair-RRC/FAST_LIO_LOCALIZATION2.git
+Baseline commit: f04974907c8da976dd0495b272d18ac4c534d41f
+Related FAST-LIO upstream: https://github.com/hku-mars/FAST_LIO
+License: GNU General Public License version 2 (GPL-2.0-only); see LICENSE.
+
+Embedded dependency: hku-mars/ikd-Tree
+Source: https://github.com/hku-mars/ikd-Tree.git
+Baseline commit: 3d115a41377243420a74fc15dd7cf7ef337730df
+License: GNU General Public License version 2; the public-source exporter
+places a copy of the package GPLv2 text beside the embedded source.
+
+This directory contains local modifications made in 2026. The changes include:
+
+- ROS 2 Humble/aarch64 build and Python installation integration;
+- RoboSense RSFAIRY point-cloud and IMU support plus rs_fairy configuration;
+- initial-pose-driven ICP localization and transform-fusion updates;
+- configurable base-yaw and localization-frame handling;
+- gravity-aligned FAST-LIO behavior shared with the mapping package; and
+- shutdown/file-handle safety fixes.
+
+The obsolete Livox demonstration launcher is not part of the production
+RoboSense navigation chain. The modified source form, build scripts, interface
+definitions, this notice, and the GPLv2 license must accompany a distributed
+binary of this derivative. This notice does not alter the upstream license or
+remove any upstream attribution.
