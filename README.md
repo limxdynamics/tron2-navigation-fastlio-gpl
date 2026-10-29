@@ -1,5 +1,9 @@
 # ROS 2 Navigation FAST-LIO GPL Derivatives
 
+<p align="center">
+  <img src="doc/banner.png" alt="A floor plan built by FAST_LIO from one LiDAR walk, with the robot's current position marked on it" width="100%">
+</p>
+
 This repository publishes the complete source used for the two GPL-2.0-only
 FAST-LIO runtime units required by the LimX ROS 2 navigation integration:
 
