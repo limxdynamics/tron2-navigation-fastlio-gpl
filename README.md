@@ -28,6 +28,12 @@ report where the robot stands. No GPS, no fiducial markers, no pre-surveyed plan
 > with its embedded `ikd-Tree`, GPLv2 text, upstream attribution, baseline commit
 > and modification notice. No license here is changed to Apache or BSD.
 
+<p align="center">
+  <img src="doc/figures/two-stages.png" alt="Two rows: mapping runs once to write map.pcd, localization runs on every start-up to turn the file plus a live scan into a pose" width="100%">
+</p>
+
+<p align="center"><sub>One drive writes <code>map.pcd</code>; every start-up after that turns the live scan into a pose inside it.</sub></p>
+
 ## What is in this repository
 
 | Path | What it does |
@@ -157,6 +163,13 @@ unit at a time.
 Mapping publishes in `camera_init`; localization publishes `map → camera_init`
 and `map → odom` and reports the base pose in `map`.
 
+<p align="center">
+  <img src="doc/figures/frames.png" alt="Frame tree: map to camera_init and map to odom published by localization, camera_init to body published by mapping" width="100%">
+</p>
+
+<p align="center"><sub>Localization adds <code>map → camera_init</code> and <code>map → odom</code>; mapping owns <code>camera_init → body</code>. Read the pose in <code>map</code>.</sub></p>
+
+
 ## v1.1.0 mapping contract
 
 Three independent range policies:
@@ -164,6 +177,12 @@ Three independent range policies:
 - `preprocess.max_range` — full points kept and exported (`100.0`);
 - `mapping.registration_max_range` — points the EKF and ikd-tree match against (`15.0`);
 - `pcd_save.pct_max_range` — points kept in the optional PCT source map (`0.0`).
+
+<p align="center">
+  <img src="doc/figures/ranges.png" alt="A 100 m corridor with three independent range settings drawn to scale: map export 100 m, EKF registration 15 m, PCT source 15 m" width="100%">
+</p>
+
+<p align="center"><sub>The three ranges are independent: the whole corridor is exported, only the near field is matched, and the PCT source map is opt-in.</sub></p>
 
 The node validates them at start-up and refuses to run on an inconsistent set:
 `registration_max_range` must be finite, non-negative, above `preprocess.blind`

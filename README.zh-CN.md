@@ -20,6 +20,12 @@
 
 > 本仓库按 GPL-2.0-only 公开 LimX ROS 2 导航集成所依赖的两个 FAST-LIO 运行时单元的完整源码：`FAST_LIO`（建图/LIO）与 `FAST_LIO_LOCALIZATION2`（地图定位），各自带内嵌的 `ikd-Tree`、GPLv2 全文、上游署名、基线提交与修改声明。本仓库中的任何许可证都没有被改成 Apache 或 BSD。
 
+<p align="center">
+  <img src="doc/figures/two-stages.png" alt="两行流程图：建图跑一次写出 map.pcd；定位每次开机把这份文件和实时扫描变成一个位姿" width="100%">
+</p>
+
+<p align="center"><sub>走一遍写出 <code>map.pcd</code>；之后每次开机，把实时扫描变成这份地图里的一个位姿。</sub></p>
+
 ## 仓库组成
 
 | 路径 | 作用 |
@@ -127,6 +133,13 @@ ros2 run fast_lio_localization publish_initial_pose 0.0 0.0 0.0 0.0 0.0 0.0
 
 建图在 `camera_init` 下发布；定位发布 `map → camera_init` 与 `map → odom`，并在 `map` 下给出底盘位姿。
 
+<p align="center">
+  <img src="doc/figures/frames.png" alt="坐标系树：定位发布 map 到 camera_init 与 map 到 odom，建图发布 camera_init 到 body" width="100%">
+</p>
+
+<p align="center"><sub>定位补上 <code>map → camera_init</code> 与 <code>map → odom</code>，建图拥有 <code>camera_init → body</code>；位姿在 <code>map</code> 下读。</sub></p>
+
+
 ## v1.1.0 建图约定
 
 三套彼此独立的量程策略：
@@ -134,6 +147,12 @@ ros2 run fast_lio_localization publish_initial_pose 0.0 0.0 0.0 0.0 0.0 0.0
 - `preprocess.max_range` —— 保留并导出的全量点（`100.0`）；
 - `mapping.registration_max_range` —— EKF 与 ikd-tree 参与匹配的点（`15.0`）；
 - `pcd_save.pct_max_range` —— 可选 PCT 源地图保留的点（`0.0`）。
+
+<p align="center">
+  <img src="doc/figures/ranges.png" alt="100 m 走廊上按比例画出三套独立量程：地图导出 100 m、EKF 配准 15 m、PCT 源地图 15 m" width="100%">
+</p>
+
+<p align="center"><sub>三套量程彼此独立：整条走廊都导出，只有近场参与匹配，PCT 源地图按需开启。</sub></p>
 
 节点在启动时校验，不一致就拒绝运行：`registration_max_range` 必须有限、非负、大于 `preprocess.blind`（`0.5`）且不超过 `preprocess.max_range`；`pct_map_file_path` 与 `pcd_save.pct_max_range` 必须同时设置，使用 PCT 源地图还要求 `pcd_save.use_all_frames: true`、`pcd_save.interval <= 0`，且路径与 `map_file_path` 不同。
 
