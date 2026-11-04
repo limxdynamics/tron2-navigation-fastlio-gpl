@@ -16,6 +16,8 @@
 
 # FAST-LIO：先建一张楼层图，再在图里找到自己
 
+> **TRON2 开源生态的一部分。** 上手路线和其他 TRON2 仓库：[TRON2 快速上手](https://github.com/limxdynamics/limxdynamics/blob/main/doc/quickstart_cn.md#tron2)。
+
 `fast_lio` 负责建图：带着机器人把一栋楼走一遍，它把每一帧扫描累积成一个 `.pcd` 文件。`fast_lio_localization` 加载这份地图，之后每次开机都把实时扫描与地图配准，报出机器人站在图里的哪一点。不需要 GPS、不需要贴标记、不需要事先测好的平面图，两个节点也都不需要导航栈同时运行。
 
 > 本仓库按 GPL-2.0-only 公开 LimX ROS 2 导航集成所依赖的两个 FAST-LIO 运行时单元的完整源码：`FAST_LIO`（建图/LIO）与 `FAST_LIO_LOCALIZATION2`（地图定位），各自带内嵌的 `ikd-Tree`、GPLv2 全文、上游署名、基线提交与修改声明。本仓库中的任何许可证都没有被改成 Apache 或 BSD。

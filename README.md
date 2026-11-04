@@ -16,6 +16,8 @@
 
 # FAST-LIO: map a floor, then find yourself on it
 
+> **Part of the TRON2 open-source ecosystem.** Where to start and the other TRON2 repositories: [TRON2 quick start](https://github.com/limxdynamics/limxdynamics/blob/main/doc/quickstart.md#tron2).
+
 `fast_lio` builds a point-cloud map: drive the robot through a building once and
 it accumulates every sweep into a single `.pcd` file. `fast_lio_localization`
 loads that file and, on each later start-up, matches the live scan against it to
