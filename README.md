@@ -6,17 +6,13 @@
   <b>English</b> | <a href="README.zh-CN.md">简体中文</a>
 </p>
 
-<!-- limx-community:start -->
-<!-- Managed by limxdynamics/limxdynamics/.github/community/sync_community.py; QR code: doc/wechat_qr.png in that repo -->
-<p align="center"><a href="https://github.com/limxdynamics/limxdynamics/blob/main/doc/wechat_qr.png"><img src="https://img.shields.io/badge/Join%20Our%20WeChat%20Community-All%20Projects%20Welcome-07C160?style=for-the-badge&logo=wechat&logoColor=white" alt="WeChat Community"></a></p>
-<!-- limx-community:end -->
-
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--2.0--only-3d7eff" alt="License: GPL-2.0-only"></a>
   <img src="https://img.shields.io/badge/ROS%202-Humble-3d7eff" alt="ROS 2 Humble">
   <img src="https://img.shields.io/badge/Ubuntu%2022.04-aarch64-3d7eff" alt="Ubuntu 22.04 aarch64">
   <a href="https://github.com/limxdynamics/tron2-navigation-fastlio-gpl/tags"><img src="https://img.shields.io/github/v/tag/limxdynamics/tron2-navigation-fastlio-gpl?color=3d7eff" alt="Latest tag"></a>
   <a href="https://github.com/hku-mars/FAST_LIO"><img src="https://img.shields.io/badge/upstream-FAST--LIO-5a6b85" alt="Upstream: FAST-LIO"></a>
+  <a href="https://github.com/limxdynamics/limxdynamics/blob/main/doc/wechat_qr.png"><img src="https://img.shields.io/badge/WeChat-Developer%20Community-07C160?logo=wechat&logoColor=white" alt="WeChat Community"></a>
 </p>
 
 # FAST-LIO: map a floor, then find yourself on it
